@@ -1,21 +1,11 @@
 package com.magdemos.smish.inspireme;
 
 import android.graphics.Color;
-
 import java.util.Random;
+//Importing the classes necessary for this class
 
-/**
- * Created by smdroidstudio.tk on 2/14/15.
- */
-
-/*
-ran out of time and didn't finish this part of the code in class...
-
-but it works like the rdnQuotesGen except for colors, shouldn't be too hard to understand...
-got any questions ask nxt class
- */
 public class rdnClrGen {
-    public String mColors[] = {
+    public String mColors[] = { //This is the list of colors
             "#3498db",
             "#2980b9",
             "#9b59b6",
@@ -32,9 +22,9 @@ public class rdnClrGen {
     };
 
     public int rtnClr() {
-        Random rndm = new Random();
-        int rndmNum = rndm.nextInt(mColors.length);
-        int col = Color.parseColor(mColors[rndmNum]);
-        return col;
+        Random rndm = new Random();//Initialize
+        int rndmNum = rndm.nextInt(mColors.length);//Pick a number value from the array
+        int col = Color.parseColor(mColors[rndmNum]);//Look for value in array, and parse it into a color
+        return col;//Returns the random color when this method is called
     }
 }
