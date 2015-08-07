@@ -9,44 +9,29 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-
+//The above lines just import classes that we will need in the following code
 
 public class InspireMeActivity extends ActionBarActivity {
-    public static final String logoutput = InspireMeActivity.class.getSimpleName();
-    private rdnQteGen qtList = new rdnQteGen();
-    private rdnClrGen clrList = new rdnClrGen();
+    private rdnQteGen qtList = new rdnQteGen();//We call the method that returns a random quote
+    private rdnClrGen clrList = new rdnClrGen();//We call the methond that returns a random background color
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.inspireme_activity);
-        final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
-        final TextView factLabel = (TextView) findViewById(R.id.theqte);
-        final Button showQuoteButton = (Button) findViewById(R.id.inspireMe);
+        super.onCreate(savedInstanceState);//Default code for showing up application
+        setContentView(R.layout.inspireme_activity);//Setting how our application would look once opened
+        final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);//Our Layout type
+        final TextView factLabel = (TextView) findViewById(R.id.theqte);//Setting the TextView for quotes
+        final Button showQuoteButton = (Button) findViewById(R.id.inspireMe);//Setting the Button
 
-        // just ignore this... this is just for users to find my play store acc
-        /**ImageView Button = (ImageView)findViewById(R.id.linktostore);
-
-        Button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=7622152208771596067"));
-                startActivity(intent);
-            }
-        });*/
-        View.OnClickListener listener = new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() { //Where random quote action takes place
             @Override
             public void onClick(View v) {
-                factLabel.setText(qtList.rtnQte());
-                int color = clrList.rtnClr();
-                relativeLayout.setBackgroundColor(color);
-                showQuoteButton.setTextColor(color);
+                factLabel.setText(qtList.rtnQte());//Selects a random quote
+                int color = clrList.rtnClr();//Selects a random color
+                relativeLayout.setBackgroundColor(color);//Sets that random quote
+                showQuoteButton.setTextColor(color);//Sets that random quote
             }
         };
-        showQuoteButton.setOnClickListener(listener);
-        Log.d(logoutput, "it came");
+        showQuoteButton.setOnClickListener(listener);//Display our button whenever it's clicked
     }
 }
